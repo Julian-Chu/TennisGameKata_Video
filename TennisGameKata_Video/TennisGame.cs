@@ -4,14 +4,20 @@ namespace TennisGameKata_Video
 {
     public class TennisGame
     {
+        private int _firstPlayerScoreTimes;
+
         public string Score()
         {
+            if (_firstPlayerScoreTimes == 1)
+            {
+                return "Fifteen Love";
+            }
             return "Love All";
         }
 
         public void FirstPlayerScore()
         {
-            throw new NotImplementedException();
+            _firstPlayerScoreTimes++;
         }
     }
 }
