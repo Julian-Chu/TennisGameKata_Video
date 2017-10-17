@@ -13,8 +13,14 @@ namespace TennisGameKata_Video
                 {3,"Forty" },
             };
 
+        private int _secondPlayerScoreTimes;
+
         public string Score()
         {
+            if (_secondPlayerScoreTimes > 0)
+            {
+                return "Love " + scoreLookup[_secondPlayerScoreTimes];
+            }
             if (_firstPlayerScoreTimes > 0)
             {
                 return scoreLookup[_firstPlayerScoreTimes] + " Love";
@@ -29,7 +35,7 @@ namespace TennisGameKata_Video
 
         public void SecondPlayerScore()
         {
-            throw new System.NotImplementedException();
+            _secondPlayerScoreTimes++;
         }
     }
 }
