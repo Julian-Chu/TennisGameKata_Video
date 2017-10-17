@@ -6,7 +6,7 @@ namespace TennisGameKata_Video
     {
         public string Score()
         {
-            throw new NotImplementedException();
+            return "Love All";
         }
     }
 }
