@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace TennisGameKata_Video
 {
@@ -22,15 +23,8 @@ namespace TennisGameKata_Video
             {
                 return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
             }
-            if (_firstPlayerScoreTimes == 1)
-            {
-                return "Fifteen All";
-            }
-            if (_firstPlayerScoreTimes == 2)
-            {
-                return "Thirty All";
-            }
-            return "Love All";
+
+            return scoreLookup[_firstPlayerScoreTimes] + " All";
         }
 
         public void FirstPlayerScore()
