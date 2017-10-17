@@ -27,28 +27,24 @@ namespace TennisGameKata_Video
 
         public string Score()
         {
-            if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
-            {
-                if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
-                {
-                    if (IsAdv())
-                    {
-                        return AdvPlayerName() + " Adv";
-                    }
+            return IsScoreDifferent()
+                ? (IsReadyForWin() ? AdvStateScore() : NormalScore())
+                : (IsDeuce() ? Deuce() : SameScore());
+        }
 
-                    if (_firstPlayerScoreTimes == 4 || _secondPlayerScoreTimes == 4)
-                    {
-                        return AdvPlayerName() + " Win";
-                    }
-                }
-                return NormalScore();
-            }
+        private bool IsScoreDifferent()
+        {
+            return _firstPlayerScoreTimes != _secondPlayerScoreTimes;
+        }
 
-            if (IsDeuce())
-            {
-                return Deuce();
-            }
-            return SameScore();
+        private string AdvStateScore()
+        {
+            return AdvPlayerName() + (IsAdv() ? " Adv" : " Win");
+        }
+
+        private bool IsReadyForWin()
+        {
+            return _firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3;
         }
 
         private string NormalScore()
