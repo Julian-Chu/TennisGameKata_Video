@@ -25,7 +25,7 @@ namespace TennisGameKata_Video
         {
             tennisGame.FirstPlayerScore();
             tennisGame.FirstPlayerScore();
-            ScoreShouldBe("Thrity Love");
+            ScoreShouldBe("Thirty Love");
         }
 
         private void ScoreShouldBe(string expected)
