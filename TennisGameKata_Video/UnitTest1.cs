@@ -44,10 +44,18 @@ namespace TennisGameKata_Video
         [TestMethod]
         public void Love_Thirty()
         {
-            tennisGame.SecondPlayerScore();
-            tennisGame.SecondPlayerScore();
+            GivenSecondPlayerScoreTimes(2);
             ScoreShouldBe("Love Thirty");
         }
+
+        private void GivenSecondPlayerScoreTimes(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.SecondPlayerScore();
+            }
+        }
+
         private void GivenFirstPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
