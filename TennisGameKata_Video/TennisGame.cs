@@ -36,9 +36,9 @@ namespace TennisGameKata_Video
                         return AdvPlayerName() + " Adv";
                     }
 
-                    if (_firstPlayerScoreTimes == 4)
+                    if (_firstPlayerScoreTimes == 4 || _secondPlayerScoreTimes == 4)
                     {
-                        return _firstPlayerName + " Win";
+                        return AdvPlayerName() + " Win";
                     }
                 }
                 return NormalScore();
