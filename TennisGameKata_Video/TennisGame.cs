@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Net.Sockets;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TennisGameKata_Video
 {
@@ -29,11 +29,14 @@ namespace TennisGameKata_Video
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
-                if (_firstPlayerScoreTimes > 3)
+                if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
                 {
-                    if (_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                    if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
-                        return _firstPlayerName + " Adv";
+                        var advPlayerName = _firstPlayerScoreTimes > _secondPlayerScoreTimes
+                            ? _firstPlayerName
+                            : _secondPlayerName;
+                        return advPlayerName + " Adv";
                     }
                 }
                 return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
