@@ -96,6 +96,13 @@ namespace TennisGameKata_Video
             ScoreShouldBe("Mei Adv");
         }
 
+        [TestMethod]
+        public void FirstPlayer_Win_When_4_0()
+        {
+            GivenFirstPlayerScoreTimes(4);
+            ScoreShouldBe("Joey Win");
+        }
+
         private void GivenSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
