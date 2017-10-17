@@ -29,6 +29,13 @@ namespace TennisGameKata_Video
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
+                if (_firstPlayerScoreTimes > 3)
+                {
+                    if (_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                    {
+                        return _firstPlayerName + " Adv";
+                    }
+                }
                 return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
             }
 
