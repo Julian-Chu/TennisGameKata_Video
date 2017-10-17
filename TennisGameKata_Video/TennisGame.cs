@@ -5,6 +5,8 @@ namespace TennisGameKata_Video
 {
     public class TennisGame
     {
+        private readonly string _firstPlayerName;
+        private readonly string _secondPlayerName;
         private int _firstPlayerScoreTimes;
 
         private Dictionary<int, string> scoreLookup = new Dictionary<int, string>()
@@ -16,6 +18,12 @@ namespace TennisGameKata_Video
             };
 
         private int _secondPlayerScoreTimes;
+
+        public TennisGame(string firstPlayerName, string secondPlayerName)
+        {
+            _firstPlayerName = firstPlayerName;
+            _secondPlayerName = secondPlayerName;
+        }
 
         public string Score()
         {
