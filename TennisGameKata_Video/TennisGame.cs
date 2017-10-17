@@ -8,6 +8,7 @@ namespace TennisGameKata_Video
         private readonly string _firstPlayerName;
         private readonly string _secondPlayerName;
         private int _firstPlayerScoreTimes;
+        private int _secondPlayerScoreTimes;
 
         private Dictionary<int, string> scoreLookup = new Dictionary<int, string>()
             {
@@ -17,12 +18,15 @@ namespace TennisGameKata_Video
                 {3,"Forty" },
             };
 
-        private int _secondPlayerScoreTimes;
-
         public TennisGame(string firstPlayerName, string secondPlayerName)
         {
             _firstPlayerName = firstPlayerName;
             _secondPlayerName = secondPlayerName;
+        }
+
+        public void FirstPlayerScore()
+        {
+            _firstPlayerScoreTimes++;
         }
 
         public string Score()
@@ -32,44 +36,14 @@ namespace TennisGameKata_Video
                 : (IsDeuce() ? Deuce() : SameScore());
         }
 
-        private bool IsScoreDifferent()
+        public void SecondPlayerScore()
         {
-            return _firstPlayerScoreTimes != _secondPlayerScoreTimes;
-        }
-
-        private string AdvStateScore()
-        {
-            return AdvPlayerName() + (IsAdv() ? " Adv" : " Win");
-        }
-
-        private bool IsReadyForWin()
-        {
-            return _firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3;
-        }
-
-        private string NormalScore()
-        {
-            return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
-        }
-
-        private string SameScore()
-        {
-            return scoreLookup[_firstPlayerScoreTimes] + " All";
+            _secondPlayerScoreTimes++;
         }
 
         private static string Deuce()
         {
             return "Deuce";
-        }
-
-        private bool IsDeuce()
-        {
-            return _firstPlayerScoreTimes >= 3;
-        }
-
-        private bool IsAdv()
-        {
-            return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
         }
 
         private string AdvPlayerName()
@@ -80,14 +54,39 @@ namespace TennisGameKata_Video
             return advPlayerName;
         }
 
-        public void FirstPlayerScore()
+        private string AdvStateScore()
         {
-            _firstPlayerScoreTimes++;
+            return AdvPlayerName() + (IsAdv() ? " Adv" : " Win");
         }
 
-        public void SecondPlayerScore()
+        private bool IsAdv()
         {
-            _secondPlayerScoreTimes++;
+            return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScoreTimes >= 3;
+        }
+
+        private bool IsReadyForWin()
+        {
+            return _firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3;
+        }
+
+        private bool IsScoreDifferent()
+        {
+            return _firstPlayerScoreTimes != _secondPlayerScoreTimes;
+        }
+
+        private string NormalScore()
+        {
+            return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
+        }
+
+        private string SameScore()
+        {
+            return scoreLookup[_firstPlayerScoreTimes] + " All";
         }
     }
 }
