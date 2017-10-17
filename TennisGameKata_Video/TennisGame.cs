@@ -8,5 +8,10 @@ namespace TennisGameKata_Video
         {
             return "Love All";
         }
+
+        public void FirstPlayerScore()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
