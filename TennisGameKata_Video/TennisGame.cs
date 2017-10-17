@@ -31,22 +31,52 @@ namespace TennisGameKata_Video
             {
                 if (_firstPlayerScoreTimes > 3 || _secondPlayerScoreTimes > 3)
                 {
-                    if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
+                    if (IsAdv())
                     {
-                        var advPlayerName = _firstPlayerScoreTimes > _secondPlayerScoreTimes
-                            ? _firstPlayerName
-                            : _secondPlayerName;
-                        return advPlayerName + " Adv";
+                        return AdvPlayerName() + " Adv";
                     }
                 }
-                return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
+                return NormalScore();
             }
 
-            if (_firstPlayerScoreTimes >= 3)
+            if (IsDeuce())
             {
-                return "Deuce";
+                return Deuce();
             }
+            return SameScore();
+        }
+
+        private string NormalScore()
+        {
+            return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
+        }
+
+        private string SameScore()
+        {
             return scoreLookup[_firstPlayerScoreTimes] + " All";
+        }
+
+        private static string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScoreTimes >= 3;
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
+        }
+
+        private string AdvPlayerName()
+        {
+            var advPlayerName = _firstPlayerScoreTimes > _secondPlayerScoreTimes
+                ? _firstPlayerName
+                : _secondPlayerName;
+            return advPlayerName;
         }
 
         public void FirstPlayerScore()
