@@ -6,13 +6,14 @@ namespace TennisGameKata_Video
     {
         private int _firstPlayerScoreTimes;
 
-        public string Score()
-        {
-            Dictionary<int, string> scoreLookup = new Dictionary<int, string>()
+        private Dictionary<int, string> scoreLookup = new Dictionary<int, string>()
             {
                 {1,"Fifteen" },
                 {2,"Thirty" },
             };
+
+        public string Score()
+        {
             if (_firstPlayerScoreTimes > 0)
             {
                 return scoreLookup[_firstPlayerScoreTimes] + " Love";
