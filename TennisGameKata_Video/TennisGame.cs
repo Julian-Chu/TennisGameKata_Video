@@ -1,4 +1,6 @@
-﻿namespace TennisGameKata_Video
+﻿using System.Collections.Generic;
+
+namespace TennisGameKata_Video
 {
     public class TennisGame
     {
@@ -6,13 +8,14 @@
 
         public string Score()
         {
-            if (_firstPlayerScoreTimes == 1)
+            Dictionary<int, string> scoreLookup = new Dictionary<int, string>()
             {
-                return "Fifteen Love";
-            }
-            if (_firstPlayerScoreTimes == 2)
+                {1,"Fifteen" },
+                {2,"Thirty" },
+            };
+            if (_firstPlayerScoreTimes > 0)
             {
-                return "Thirty Love";
+                return scoreLookup[_firstPlayerScoreTimes] + " Love";
             }
             return "Love All";
         }
