@@ -60,7 +60,7 @@ namespace TennisGameKata_Video
         public void Thirty_All()
         {
             GivenFirstPlayerScoreTimes(2);
-            GivenFirstPlayerScoreTimes(2);
+            GivenSecondPlayerScoreTimes(2);
             ScoreShouldBe("Thirty All");
         }
 
