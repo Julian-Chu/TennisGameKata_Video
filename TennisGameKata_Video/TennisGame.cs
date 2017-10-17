@@ -22,6 +22,10 @@ namespace TennisGameKata_Video
             {
                 return scoreLookup[_firstPlayerScoreTimes] + " " + scoreLookup[_secondPlayerScoreTimes];
             }
+            if (_firstPlayerScoreTimes==1)
+            {
+                return "Fifteen All";
+            }
             return "Love All";
         }
 
