@@ -26,5 +26,10 @@ namespace TennisGameKata_Video
         {
             _firstPlayerScoreTimes++;
         }
+
+        public void SecondPlayerScore()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
