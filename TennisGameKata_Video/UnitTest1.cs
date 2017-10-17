@@ -48,6 +48,14 @@ namespace TennisGameKata_Video
             ScoreShouldBe("Love Thirty");
         }
 
+        [TestMethod]
+        public void Fifteen_All()
+        {
+            tennisGame.FirstPlayerScore();
+            tennisGame.SecondPlayerScore();
+            ScoreShouldBe("Fifteen All");
+        }
+
         private void GivenSecondPlayerScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
