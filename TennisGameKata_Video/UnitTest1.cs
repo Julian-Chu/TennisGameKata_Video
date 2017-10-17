@@ -20,6 +20,14 @@ namespace TennisGameKata_Video
             ScoreShouldBe("Fifteen Love");
         }
 
+        [TestMethod]
+        public void Thirty_Love()
+        {
+            tennisGame.FirstPlayerScore();
+            tennisGame.FirstPlayerScore();
+            ScoreShouldBe("Thrity Love");
+        }
+
         private void ScoreShouldBe(string expected)
         {
             string score = tennisGame.Score();
